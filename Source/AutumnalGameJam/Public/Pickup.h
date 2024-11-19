@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Component/Camera.h"
 #include "Pickup.generated.h"
 
 UCLASS()
@@ -25,5 +26,22 @@ public:
 
     UPROPERTY(EditAnywhere)
     class UStaticMeshComponent* StaticMesh;
+
+	UPROPERTY(EditAnywhere)
+	class USceneComponent* HoldingComp;
+
+	UFUNCTION()
+	void RotateActor();
+
+	UFUNCTION()
+	void PickActor();
+
+	bool bHolding;
+	bool bGravity;
+
+	FRotator ControlRotation;
+	ACharacter* MyCharacter;
+	UCameraComponent* PlayerCamera;
+	FVector ForwardVector;
 
 };

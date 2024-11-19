@@ -2,6 +2,7 @@
 
 
 #include "Pickup.h"
+#include "GameFramework/Character.h"
 
 // Sets default values
 APickup::APickup()
@@ -10,7 +11,11 @@ APickup::APickup()
 	PrimaryActorTick.bCanEverTick = true;
 
     StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Static Mesh"));
+	StaticMesh->SetSimulatePhysics(true);
     RootComponent = StaticMesh;
+
+	bHolding = false;
+	bGravity = true;
 
 }
 
